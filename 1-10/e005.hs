@@ -4,8 +4,10 @@ primes :: Integral a => a -> a -> [a]
 primes a b = takeWhile (<= b) $ dropWhile (< a) $ sieve [2..]
   where sieve (n:ns) = n:sieve [ m | m <- ns, m `mod` n /= 0 ]
 
-result = [ x | x <- primes 1 600851475143, 600851475143 `mod` x == 0 ]
+
+
+result = foldr (*) 1 [ x | x <- primes 1 20, y <- [1..truncate(logBase x 20)], x ^ y < 20]
 
 main :: IO()
 main = do
-    print(last result)
+  print(result)
