@@ -7,5 +7,4 @@ primes a b = takeWhile (<= b) $ dropWhile (< a) $ sieve [2..]
 result = [ x | x <- primes 1 600851475143, 600851475143 `mod` x == 0 ]
 
 main :: IO()
-main = do
-    print(last result)
+main = print (last result)
