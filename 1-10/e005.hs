@@ -10,4 +10,4 @@ ylimit x = round( logBase (fromIntegral x) 20)
 result = product [ x | x <- primes 1 20, y <- [1..ylimit x], x ^ y < 20]
 
 main :: IO()
-main = print (result)
+main = print result
